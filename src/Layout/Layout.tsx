@@ -1,19 +1,15 @@
-import {FC} from 'react'
-import {Header,Nav,Footer} from '../components';
-import Container from '@mui/material/Container';
+import { FC } from 'react';
+import { Nav, Footer } from '../components';
+import Container from '@material-ui/core/Container';
 
-
-const Layout:FC = ({children}) => {
+const Layout: FC = ({ children }) => {
   return (
     <>
-      <Header/>
-      <Nav/>
-        <Container maxWidth="sm">
-          {children}
-        </Container>
+      <Nav />
+      <Container maxWidth="sm">{children}</Container>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
