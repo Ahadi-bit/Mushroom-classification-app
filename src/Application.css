@@ -1,9 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #66b494;
+  background-color: #6fbf73;
 }
 
-a{
+a {
   text-decoration: none;
+}
+
+p {
+  color: black;
 }

@@ -9,10 +9,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from "react-router-dom";
-import {pages} from "../../routes";
-import './Nav.css'
-
+import { Link } from 'react-router-dom';
+import { pages } from '../../routes';
+import './Nav.css';
 
 export const Nav = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -80,17 +79,25 @@ export const Nav = () => {
               variant="h6"
               noWrap
               component="div"
-              sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+              sx={{
+                flexGrow: 1,
+                display: { xs: 'flex', md: 'none' },
+                justifyContent: { xs: 'end' },
+              }}
             >
               🍄
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => (
-              <Link key={page.name} to={page.path}>
-                <Button key={page.name} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
-                  {page.name}
-                </Button>
-              </Link>
+                <Link key={page.name} to={page.path}>
+                  <Button
+                    key={page.name}
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                  >
+                    {page.name}
+                  </Button>
+                </Link>
               ))}
             </Box>
           </Toolbar>
