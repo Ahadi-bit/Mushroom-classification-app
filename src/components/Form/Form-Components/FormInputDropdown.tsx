@@ -1,9 +1,5 @@
-import React from "react";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { useFormContext, Controller } from "react-hook-form";
-
-
-
+import {FC,useState} from "react";
+import { FormControl, InputLabel, MenuItem, Select,SelectChangeEvent } from "@mui/material";
 
 export interface FormInputProps {
   name: string;
@@ -14,22 +10,22 @@ export interface FormInputProps {
 }
 
 
-export const FormInputDropdown: React.FC<FormInputProps> = ({name,control,label,menuItems}) => {
+export const FormInputDropdown:FC<FormInputProps> = ({label,menuItems,control,name}) => {
+    const [feature, setFeature] = useState('');
+    
+    const handleChange = (event: SelectChangeEvent) => {
+      setFeature(event.target.value as string);
+    };
+
 
   return (
     <FormControl size={"small"} sx={{width:"100%"}}>
       <InputLabel>{label}</InputLabel>
-      <Controller
-        render={({ field: { onChange, value } }) => (
-          <Select onChange={onChange} value={value}>
-          {Object.keys(menuItems).map((key) => (
-            <MenuItem key={key} value={menuItems[key]}>{key}</MenuItem>
-          ))}
-          </Select>
-        )}
-        control={control}
-        name={name}
-      />
+        <Select onChange={handleChange} value={feature} >
+      {Object.keys(menuItems).map((key) => (
+        <MenuItem key={key} value={menuItems[key]} >{key}</MenuItem>
+      ))}
+      </Select>
     </FormControl>
   );
 };
