@@ -1,30 +1,15 @@
 import { IMushroomFeatures } from './interfaces/formModel';
 
-// cap-surface: fibrous=f,grooves=g,scaly=y,smooth=s
-// bruises: bruises=t,no=f
-// gill-spacing: close=c,crowded=w,distant=d
-// gill-size: broad=b,narrow=n
-// gill-color: black=k,brown=n,buff=b,chocolate=h,gray=g, green=r,orange=o,pink=p,purple=u,red=e,white=w,yellow=y
-// stalk-shape: enlarging=e,tapering=t
-
-// stalk-color-above-ring: brown=n,buff=b,cinnamon=c,gray=g,orange=o,pink=p,red=e,white=w,yellow=y
-// stalk-color-below-ring: brown=n,buff=b,cinnamon=c,gray=g,orange=o,pink=p,red=e,white=w,yellow=y
-// veil-type: partial=p,universal=u
-// veil-color: brown=n,orange=o,white=w,yellow=y
-// ring-type: cobwebby=c,evanescent=e,flaring=f,large=l,none=n,pendant=p,sheathing=s,zone=z
-// spore-print-color: black=k,brown=n,buff=b,chocolate=h,green=r,orange=o,purple=u,white=w,yellow=y
-
 export const mushroomFeature: IMushroomFeatures[] = [
   {
     feature: 'cap-surface',
-    options: { fibrous: 0, grooves: 1, smooth: 2, scaly: 3 },
+    options: { fibrous: 0, grooves: 1, smooth: 2, scaly: 3, '': 4 },
   },
   {
     feature: 'bruises',
-    options: { no: 0, bruises: 1 },
+    options: { no: 0, bruises: 1, '': 2 },
   },
   {
-    // odor: almond=a,anise=l,creosote=c,fishy=y,foul=f,musty=m,none=n,pungent=p,spicy=s
     feature: 'odor',
     options: {
       almond: 0,
@@ -36,26 +21,22 @@ export const mushroomFeature: IMushroomFeatures[] = [
       pungent: 6,
       spicy: 7,
       fishy: 8,
+      '': 9,
     },
   },
   {
-    // gill-attachment: attached=a,descending=d,free=f,notched=n
     feature: 'gill-attachment',
-    options: { attached: 0, free: 1 },
+    options: { attached: 0, free: 1, '': 2 },
   },
   {
     feature: 'gill-spacing',
-    options: { close: 0, crowded: 1 },
+    options: { close: 0, crowded: 1, '': 2 },
   },
   {
-    // gill-size: broad=b,narrow=n
-
     feature: 'gill-size',
-    options: { broad: 0, narrow: 1 },
+    options: { broad: 0, narrow: 1, '': 2 },
   },
   {
-    // gill-color: black=k,brown=n,buff=b,chocolate=h,gray=g, green=r,orange=o,pink=p,purple=u,red=e,white=w,yellow=y
-
     feature: 'gill-color',
     options: {
       buff: 0,
@@ -70,32 +51,26 @@ export const mushroomFeature: IMushroomFeatures[] = [
       purple: 9,
       white: 10,
       yellow: 11,
+      '': 12,
     },
   },
   {
-    // stalk-shape: enlarging=e,tapering=t
     feature: 'stalk-shape',
-    options: { enlarging: 0, tapering: 1 },
+    options: { enlarging: 0, tapering: 1, '': 2 },
   },
   {
-    // stalk-root: bulbous=b,club=c,cup=u,equal=e,rhizomorphs=z,rooted=r,missing=?
-
     feature: 'stalk-root',
-    options: { missing: 0, bulbous: 1, club: 2, equal: 3, rooted: 4 },
+    options: { missing: 0, bulbous: 1, club: 2, equal: 3, rooted: 4, '': 5 },
   },
   {
-    // stalk-surface-above-ring: fibrous=f,scaly=y,silky=k,smooth=s
-    // stalk-surface-below-ring: fibrous=f,scaly=y,silky=k,smooth=s
     feature: 'stalk-surface-above-ring',
-    options: { fibrous: 0, silky: 1, smooth: 2, scaly: 3 },
+    options: { fibrous: 0, silky: 1, smooth: 2, scaly: 3, '': 4 },
   },
   {
     feature: 'stalk-surface-below-ring',
-    options: { fibrous: 0, silky: 1, smooth: 2, scaly: 3 },
+    options: { fibrous: 0, silky: 1, smooth: 2, scaly: 3, '': 4 },
   },
   {
-    // stalk-color-above-ring: brown=n,buff=b,cinnamon=c,gray=g,orange=o,pink=p,red=e,white=w,yellow=y
-    // stalk-color-below-ring: brown=n,buff=b,cinnamon=c,gray=g,orange=o,pink=p,red=e,white=w,yellow=y
     feature: 'stalk-color-above-ring',
     options: {
       buff: 0,
@@ -107,6 +82,7 @@ export const mushroomFeature: IMushroomFeatures[] = [
       pink: 6,
       white: 7,
       yellow: 8,
+      '': 9,
     },
   },
   {
@@ -121,17 +97,14 @@ export const mushroomFeature: IMushroomFeatures[] = [
       pink: 6,
       white: 7,
       yellow: 8,
+      '': 9,
     },
   },
   {
-    // ring-number: none=n,one=o,two=t
-
     feature: 'ring-number',
-    options: { none: 0, one: 1, two: 2 },
+    options: { none: 0, one: 1, two: 2, '': 3 },
   },
   {
-    // population: abundant=a,clustered=c,numerous=n,scattered=s,several=v,solitary=y
-    // habitat: grasses=g,leaves=l,meadows=m,paths=p,urban=u,waste=w,woods=d
     feature: 'population',
     options: {
       abundant: 0,
@@ -140,6 +113,7 @@ export const mushroomFeature: IMushroomFeatures[] = [
       scattered: 3,
       several: 4,
       solitary: 5,
+      '': 6,
     },
   },
   {
@@ -152,6 +126,7 @@ export const mushroomFeature: IMushroomFeatures[] = [
       paths: 4,
       urban: 5,
       waste: 6,
+      '': 7,
     },
   },
 ];
