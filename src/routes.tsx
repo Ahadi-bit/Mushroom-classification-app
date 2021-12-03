@@ -1,5 +1,5 @@
 import Home from './pages/Home';
-import About from './pages/About';
+import Report from './pages/Report';
 
 export const pages = [
   {
@@ -10,6 +10,6 @@ export const pages = [
   {
     name: 'Reports',
     path: '/reports',
-    page: <About />,
+    page: <Report />,
   },
 ];

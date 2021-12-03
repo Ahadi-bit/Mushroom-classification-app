@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  fabClasses,
   FormControl,
   InputLabel,
   MenuItem,
@@ -28,7 +27,6 @@ export const FormInputDropdown: React.FC<FormInputProps> = ({
   errorLabel,
 }) => {
   const errorToggle = error && errorLabel === label ? true : false;
-  console.log('errorToggle', errorToggle);
   return (
     <FormControl size={'small'} sx={{ width: '100%' }}>
       <Controller

@@ -5,7 +5,18 @@ import { FormInputDropdown } from './Form-Components';
 import Grid from '@mui/material/Grid';
 import { mushroomFeature } from '../../mushroomFeatures';
 import { IFormInput } from '../../interfaces/formModel';
+import {postForm} from '../../services/api/api';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import { Text } from '..';
+
 import './Form.css';
+
 import {
   defaultValues,
   validation,
@@ -14,51 +25,41 @@ import {
 export const Form: FC = () => {
   const methods = useForm<IFormInput>({ defaultValues: defaultValues });
   const [FormError, setError] = useState(false);
-  const [errorLabel, setErrorLabel] = useState();
+  const [errorLabel, setErrorLabel] = useState('');
   const { handleSubmit, reset, control } = methods;
+  const[open,setOpen] = useState(false);
+  const[predict, setPredict] = useState('')
+  const[edible, setEdible] = useState('')
+  const[poisonous, setPoisonous] = useState('')
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'))
+
+
 
   const onSubmit = (data: IFormInput) => {
     const valid = validation(data);
     if (valid['isValid']) {
+      postForm('http://127.0.0.1:8000/predict',data).then((prediction)=>{
+        setEdible(prediction[1])
+        setPoisonous(prediction[2])
+        setPredict(prediction[0])})
+      .then(()=> setOpen(true))
     } else {
       setErrorLabel(valid['feature']);
       setError(true);
     }
   };
 
-  return (
-    <Paper sx={{ width: '100%' }}>
-      <Typography
-        variant="h4"
-        component="div"
-        sx={{
-          display: 'flex',
-          marginTop: '15px',
-          justifyContent: 'center',
-          textAlign: 'center',
-          paddingTop: '15px',
-        }}
-      >
-        Welcome to the Mushroom app!
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        component="div"
-        sx={{
-          display: { xs: 'none', md: 'flex' },
-          justifyContent: 'center',
-          textAlign: 'center',
-        }}
-      >
-        Is your mushroom edible or not? Fill out the form below to find out!
-      </Typography>
+  const handleClose = () => {
+    reset();
+    setOpen(false);
+  };
 
-      <Grid
-        container
-        rowSpacing={{ xs: 1, sm: 2, md: 3 }}
-        columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-        className="form-container"
-      >
+  return (
+    <>
+      <Text heading="Welcome to the Mushroom app!" subtitle="Is your mushroom edible or not? Fill out the form below to find out!"/>
+      <Grid container rowSpacing={{ xs: 1, sm: 2, md: 3 }} columnSpacing={{ xs: 1, sm: 2, md: 3 }}className="form-container">
+
         <Grid item xs={6}>
           <FormInputDropdown
             name="capSurface"
@@ -238,7 +239,26 @@ export const Form: FC = () => {
         <Button onClick={() => reset()} variant="outlined" color="secondary">
           Reset
         </Button>
+        <Dialog open={open} fullScreen={fullScreen} onClose={handleClose} aria-labelledby="responsive-dialog-title">
+          <DialogTitle id="responsive-dialog-title" sx={{textAlign:'center'}}>
+            This is a {predict.toLowerCase()}!
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText sx={{position:'relative', textAlign:'center'}}>Confidence Level:</DialogContentText>
+            <DialogContentText sx={{ position:'relative'}}>
+              Poisonous percentage: {poisonous} Edible percentage: {edible}
+            </DialogContentText>
+            <DialogContentText style={{width:'100%',height:'0',paddingBottom:'100%', position:'relative'}}>
+              <iframe src={predict==="Edible Mushroom"? "https://giphy.com/embed/bSEkPdQfsSHCMYn7fD": "https://giphy.com/embed/XZYU1eBnPPC67Dh8Uw"} width="100%" height="100%" style={{position:'absolute',display:'block'}} frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+          <Button autoFocus onClick={handleClose} variant="contained" color="secondary">
+              Close
+            </Button>
+        </DialogActions>
+        </Dialog>
       </Container>
-    </Paper>
+    </>
   );
 };
