@@ -10,7 +10,7 @@ export const Report: FC = () => {
         <Text heading="Mushroom Reports!" subtitle="Here you can find an analysis that can help you learn more about the Data we are using"/>
         
         <Grid container rowSpacing={{ xs: 1, sm: 2, md: 3 }} columnSpacing={{ xs: 1, sm: 2, md: 3 }}className="form-container">
-          <Grid item xs={5} sx={{display:{xs:'none', md:'block'}}}>
+          <Grid item xs={12} md={5} sx={{display:{xs:'block', md:'block'}}}>
             <Typography variant="body1" component="div"
             sx={{
               display: 'flex',
@@ -32,7 +32,7 @@ export const Report: FC = () => {
             with a edible mushrooms.
           </Typography>
           </Grid>
-          <Grid item sm={12} md={7}> <Correlation /></Grid>
+          <Grid item sm={12} md={7} sx={{display:{xs:'none', md:'flex'}}}> <Correlation/></Grid>
         </Grid>
 
     </>

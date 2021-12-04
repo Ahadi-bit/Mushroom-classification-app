@@ -29,13 +29,16 @@ export const Form: FC = () => {
   const { handleSubmit, reset, control } = methods;
   const[open,setOpen] = useState(false);
   const[predict, setPredict] = useState('')
-  const[edible, setEdible] = useState('')
-  const[poisonous, setPoisonous] = useState('')
+  const[edible, setEdible] = useState(0)
+  const[poisonous, setPoisonous] = useState(0)
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'))
 
 
+  const confidenceEdible = edible > 75 ? `Edible percentage: ${edible}%`:`(Edible percentage: ${edible}%)so be careful!`
+  const confidencePoisonous = poisonous > 75 ? `Poisonous percentage: ${edible}%`:`(Poisonous percentage: ${edible}%) so be careful!`
 
+  const confidenceText = predict === "Poisonous Mushroom" ? confidencePoisonous: confidenceEdible;
   const onSubmit = (data: IFormInput) => {
     const valid = validation(data);
     if (valid['isValid']) {
@@ -244,9 +247,9 @@ export const Form: FC = () => {
             This is a {predict.toLowerCase()}!
           </DialogTitle>
           <DialogContent>
-            <DialogContentText sx={{position:'relative', textAlign:'center'}}>Confidence Level:</DialogContentText>
+            <DialogContentText sx={{position:'relative', textAlign:'center'}}>Confidence percentage:</DialogContentText>
             <DialogContentText sx={{ position:'relative'}}>
-              Poisonous percentage: {poisonous} Edible percentage: {edible}
+              {confidenceText}
             </DialogContentText>
             <DialogContentText style={{width:'100%',height:'0',paddingBottom:'100%', position:'relative'}}>
               <iframe src={predict==="Edible Mushroom"? "https://giphy.com/embed/bSEkPdQfsSHCMYn7fD": "https://giphy.com/embed/XZYU1eBnPPC67Dh8Uw"} width="100%" height="100%" style={{position:'absolute',display:'block'}} frameBorder="0" className="giphy-embed"  title="mushroom" allowFullScreen></iframe>
