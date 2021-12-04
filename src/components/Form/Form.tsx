@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Button, Paper, Typography, Container } from '@mui/material/';
+import { Button,Container } from '@mui/material/';
 import { FormInputDropdown } from './Form-Components';
 import Grid from '@mui/material/Grid';
 import { mushroomFeature } from '../../mushroomFeatures';
@@ -39,7 +39,7 @@ export const Form: FC = () => {
   const onSubmit = (data: IFormInput) => {
     const valid = validation(data);
     if (valid['isValid']) {
-      postForm('http://127.0.0.1:8000/predict',data).then((prediction)=>{
+      postForm('https://protected-headland-74973.herokuapp.com/predict',data).then((prediction)=>{
         setEdible(prediction[1])
         setPoisonous(prediction[2])
         setPredict(prediction[0])})
@@ -249,7 +249,7 @@ export const Form: FC = () => {
               Poisonous percentage: {poisonous} Edible percentage: {edible}
             </DialogContentText>
             <DialogContentText style={{width:'100%',height:'0',paddingBottom:'100%', position:'relative'}}>
-              <iframe src={predict==="Edible Mushroom"? "https://giphy.com/embed/bSEkPdQfsSHCMYn7fD": "https://giphy.com/embed/XZYU1eBnPPC67Dh8Uw"} width="100%" height="100%" style={{position:'absolute',display:'block'}} frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
+              <iframe src={predict==="Edible Mushroom"? "https://giphy.com/embed/bSEkPdQfsSHCMYn7fD": "https://giphy.com/embed/XZYU1eBnPPC67Dh8Uw"} width="100%" height="100%" style={{position:'absolute',display:'block'}} frameBorder="0" className="giphy-embed"  title="mushroom" allowFullScreen></iframe>
             </DialogContentText>
           </DialogContent>
           <DialogActions>

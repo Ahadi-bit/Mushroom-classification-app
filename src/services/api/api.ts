@@ -8,7 +8,6 @@ export const postForm = async (url: string, formData: any)=> {
       'Content-Type': 'application/json'
     }})
   const prediction = await response.json()
-  console.log(prediction[1])
   return prediction
 }
 

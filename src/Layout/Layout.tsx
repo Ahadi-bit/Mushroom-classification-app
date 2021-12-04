@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Nav, Footer } from '../components';
+import { Nav } from '../components';
 import Container from '@mui/material/Container';
 import { Paper} from '@mui/material/';
 

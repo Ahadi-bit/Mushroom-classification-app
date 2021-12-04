@@ -1,5 +1,4 @@
 import { FC , useEffect,useState} from 'react';
-import { Text } from '..';
 import { getCorrelation } from '../../services/api/api';
 import {
   Chart as ChartJS,
@@ -11,8 +10,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { deepStrictEqual } from 'assert';
-import { Console } from 'console';
 
 ChartJS.register(
   CategoryScale,
@@ -47,11 +44,10 @@ export const options = {
 export const Correlation:FC = () => {
   const[correlation, setCorrelation] = useState({})
   useEffect(() =>{
-      getCorrelation('http://127.0.0.1:8000/correlation')
+      getCorrelation('https://protected-headland-74973.herokuapp.com/correlation')
         .then(correlation=>{
-          console.log(correlation)
           setCorrelation(correlation)
-        })
+        }).catch(err => ()=> console.log(err))
   },[])
   delete correlation['target']
   delete correlation['cap_shape']

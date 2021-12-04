@@ -1,6 +1,7 @@
 export interface IMushroomFeatures {
   feature: string;
   options: Object;
+  description?: string;
 }
 
 export interface IFormInput {

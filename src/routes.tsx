@@ -1,5 +1,5 @@
-import Home from './pages/Home';
-import Report from './pages/Report';
+import {Home,Report,InfoPage} from './pages';
+
 
 export const pages = [
   {
@@ -12,4 +12,10 @@ export const pages = [
     path: '/reports',
     page: <Report />,
   },
+  {
+    name: 'Information',
+    path: '/info',
+    page: <InfoPage />,
+  },
+
 ];

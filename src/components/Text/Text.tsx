@@ -1,5 +1,5 @@
 import {FC} from 'react'
-import { Button, Paper, Typography, Container } from '@mui/material/';
+import { Typography } from '@mui/material/';
 
 
 interface TextProps {
@@ -10,7 +10,7 @@ interface TextProps {
 
 export const Text:FC<TextProps> = ({heading,subtitle}) => {
   return (
-    <div>
+    <div style={{marginBottom:"25px"}}>
       <Typography
           variant="h4"
           component="div"
@@ -36,7 +36,8 @@ export const Text:FC<TextProps> = ({heading,subtitle}) => {
             {subtitle}
           </Typography>
         }
-    </div>
+        <hr/>
+    </div >
   )
 }
 

@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import { pages } from '../../routes';
 import './Nav.css';
 
-export const Nav = () => {
+export const Nav: FC = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {

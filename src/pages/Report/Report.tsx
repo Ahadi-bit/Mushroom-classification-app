@@ -1,16 +1,16 @@
 import { FC } from 'react';
-import { Text,Correlation } from '../components';
+import { Text,Correlation } from '../../components';
 import {Grid,Typography} from '@mui/material';
 
 
-const Report: FC = () => {
+export const Report: FC = () => {
 
   return (
     <>
-        <Text heading="Mushroom Reports!" subtitle="Here you can find some analysis that can help you learn more about the Data we are using"/>
+        <Text heading="Mushroom Reports!" subtitle="Here you can find an analysis that can help you learn more about the Data we are using"/>
         
         <Grid container rowSpacing={{ xs: 1, sm: 2, md: 3 }} columnSpacing={{ xs: 1, sm: 2, md: 3 }}className="form-container">
-          <Grid item xs={6}>
+          <Grid item xs={5} sx={{display:{xs:'none', md:'block'}}}>
             <Typography variant="body1" component="div"
             sx={{
               display: 'flex',
@@ -32,11 +32,9 @@ const Report: FC = () => {
             with a edible mushrooms.
           </Typography>
           </Grid>
-          <Grid item xs={6}> <Correlation /></Grid>
+          <Grid item sm={12} md={7}> <Correlation /></Grid>
         </Grid>
 
     </>
   );
 };
-
-export default Report;

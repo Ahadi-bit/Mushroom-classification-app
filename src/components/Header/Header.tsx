@@ -1,8 +1,7 @@
-import React from 'react';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import {FC} from 'react';
+import { Typography,Box } from '@mui/material/';
 
-export const Header = () => {
+export const Header:FC = () => {
   return (
     <header>
       <Box sx={{ my: 4 }}>
