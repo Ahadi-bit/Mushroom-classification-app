@@ -4,42 +4,37 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { Bar,Line } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend
 );
 
 
-export const options = {
-  indexAxis: 'x' as const,
-  elements: {
-    bar: {
-      borderWidth: 2,
-    },
-  },
+const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: 'right' as const,
+      position: 'top' as const,
     },
     title: {
       display: true,
-      text: 'Correlation Chart based on target',
+      text: 'Chart.js Line Chart',
     },
   },
 };
-
 
 export const Correlation:FC = () => {
   const[correlation, setCorrelation] = useState({})
@@ -49,6 +44,7 @@ export const Correlation:FC = () => {
           setCorrelation(correlation)
         }).catch(err => ()=> console.log(err))
   },[])
+
   delete correlation['target']
   delete correlation['cap_shape']
   delete correlation['stalk_shape']
@@ -71,6 +67,6 @@ export const Correlation:FC = () => {
       }
     ],
   };
-  return <Bar options={options} data={data} />
+  return <Line options={options} data={data} />
 }
 

@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Text,Correlation } from '../../components';
-import {Grid,Typography} from '@mui/material';
+import { Text,Correlation,FeatureChart, PopulationChart} from '../../components';
+import {Typography} from '@mui/material';
 
 
 export const Report: FC = () => {
@@ -8,32 +8,59 @@ export const Report: FC = () => {
   return (
     <>
         <Text heading="Mushroom Reports!" subtitle="Here you can find an analysis that can help you learn more about the Data we are using"/>
-        
-        <Grid container rowSpacing={{ xs: 1, sm: 2, md: 3 }} columnSpacing={{ xs: 1, sm: 2, md: 3 }}className="form-container">
-          <Grid item xs={12} md={5} sx={{display:{xs:'block', md:'block'}}}>
-            <Typography variant="body1" component="div"
+        <Typography variant="body1" component="div"
+            sx={{
+              display: 'flex',
+              textAlign: 'center',
+              justifyContent: 'center'
+            }}>
+            Feature distributution
+          </Typography>
+          <Typography variant="body1" component="div"
+            sx={{
+              display: 'flex',
+              marginTop: '15px',
+              justifyContent: 'center'
+            }}>
+            edible and poisonous mushroom based on feature. To understand what the labels mean head over to the information page to get a description
+          </Typography>
+          <br/>
+        <FeatureChart />
+          <br/>
+          <br/>
+          <Typography variant="body1" component="div"
+            sx={{
+              display: 'flex',
+              textAlign: 'center',
+              justifyContent: 'center'
+            }}>
+            Mushroom Population Type Percentage
+          </Typography>
+          <br/>
+        <PopulationChart />
+        <br/>
+        <br/>
+        <Typography variant="body1" component="div"
             sx={{
               display: 'flex',
               marginTop: '15px',
               textAlign: 'center',
-              marginLeft: '10%'
+              justifyContent: 'center'
             }}>
             Correlation Chart
           </Typography>
           <Typography variant="body2" component="div"
             sx={{
               display: 'flex',
-              marginTop: '5px',
-              textAlign: 'left',
-              marginLeft: '10%'
+              textAlign: 'center',
+              justifyContent: 'center'
             }} >
             Here you can find a correlation chart that tell you what items are the most important to find whenever you are distinguishing the edibility of a mushroom. 
             The features that are trending negatively are correlations with a poisonous mushroom while a positive trend means they correspond
             with a edible mushrooms.
           </Typography>
-          </Grid>
-          <Grid item sm={12} md={7} sx={{display:{xs:'none', md:'flex'}}}> <Correlation/></Grid>
-        </Grid>
+          <br/>
+          <Correlation/>
 
     </>
   );

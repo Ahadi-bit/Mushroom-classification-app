@@ -4,12 +4,12 @@ export const mushroomFeature: IMushroomFeatures[] = [
   {
     feature: 'cap-surface',
     options: { fibrous: 0, grooves: 1, smooth: 2, scaly: 3, '': 4 },
-    description: 'The surface on top of the mushroom'
+    description: 'The surface on top of the mushroom. fibrous=f,grooves=g,scaly=y,smooth=s'
   },
   {
     feature: 'bruises',
     options: { no: 0, bruises: 1, '': 2 },
-    description: 'damage or markings'
+    description: 'Damage or markings. bruises=t,no=f'
 
   },
   {
@@ -26,25 +26,25 @@ export const mushroomFeature: IMushroomFeatures[] = [
       fishy: 8,
       '': 9,
     },
-    description: 'Smell'
+    description: 'Smell. almond=a,anise=l,creosote=c,fishy=y,foul=f,musty=m,none=n,pungent=p,spicy=s'
 
   },
   {
     feature: 'gill-attachment',
     options: { attached: 0, free: 1, '': 2 },
-    description: 'Gills attached to the stem'
+    description: 'Gills attached to the stem. attached=a,descending=d,free=f,notched=n'
 
   },
   {
     feature: 'gill-spacing',
     options: { close: 0, crowded: 1, '': 2 },
-    description: 'Space between gilss'
+    description: 'Space between gills. close=c,crowded=w,distant=d'
 
   },
   {
     feature: 'gill-size',
     options: { broad: 0, narrow: 1, '': 2 },
-    description: 'Size of gill'
+    description: 'Size of gills. broad=b,narrow=n'
 
   },
   {
@@ -64,27 +64,27 @@ export const mushroomFeature: IMushroomFeatures[] = [
       yellow: 11,
       '': 12,
     },
-    description: 'The Color of the gill'
+    description: 'The color of the gills. black=k,brown=n,buff=b,chocolate=h,gray=g, green=r,orange=o,pink=p,purple=u,red=e,white=w,yellow=y'
   },
   {
     feature: 'stalk-shape',
     options: { enlarging: 0, tapering: 1, '': 2 },
-    description:' Shape of the Stock'
+    description:' Shape of the stock. enlarging=e,tapering=t'
   },
   {
     feature: 'stalk-root',
     options: { missing: 0, bulbous: 1, club: 2, equal: 3, rooted: 4, '': 5 },
-    description:'root condition and shape'
+    description:'Root condition and shape. bulbous=b,club=c,cup=u,equal=e,rhizomorphs=z,rooted=r,missing=?'
   },
   {
     feature: 'stalk-surface-above-ring',
     options: { fibrous: 0, silky: 1, smooth: 2, scaly: 3, '': 4 },
-    description:'Surface of the stalk above the ring'
+    description:'Surface of the stalk above the ring. fibrous=f,scaly=y,silky=k,smooth=s'
   },
   {
     feature: 'stalk-surface-below-ring',
     options: { fibrous: 0, silky: 1, smooth: 2, scaly: 3, '': 4 },
-    description:'Surface of the stalk below the ring'
+    description:'Surface of the stalk below the ring. fibrous=f,scaly=y,silky=k,smooth=s'
 
   },
   {
@@ -101,7 +101,7 @@ export const mushroomFeature: IMushroomFeatures[] = [
       yellow: 8,
       '': 9,
     },
-    description:'Color of the stalk above the ring'
+    description:'Color of the stalk above the ring. brown=n,buff=b,cinnamon=c,gray=g,orange=o,pink=p,red=e,white=w,yellow=y'
 
   },
   {
@@ -118,13 +118,13 @@ export const mushroomFeature: IMushroomFeatures[] = [
       yellow: 8,
       '': 9,
     },
-    description:'Color of the stalk below the ring'
+    description:'Color of the stalk below the ring. brown=n,buff=b,cinnamon=c,gray=g,orange=o,pink=p,red=e,white=w,yellow=y'
 
   },
   {
     feature: 'ring-number',
     options: { none: 0, one: 1, two: 2, '': 3 },
-    description:'Number of rings on the mushroom'
+    description:'Number of rings on the mushroom. none=n,one=o,two=t'
 
   },
   {
@@ -138,7 +138,7 @@ export const mushroomFeature: IMushroomFeatures[] = [
       solitary: 5,
       '': 6,
     },
-    description:'Quantity of mushrooms around its habitat'
+    description:'Quantity of mushrooms around its habitat. abundant=a,clustered=c,numerous=n,scattered=s,several=v,solitary=y'
 
   },
   {
@@ -153,6 +153,6 @@ export const mushroomFeature: IMushroomFeatures[] = [
       waste: 6,
       '': 7,
     },
-    description:'The environment that the mushroom is in.'
+    description:'The environment that the mushroom is in. g,leaves=l,meadows=m,paths=p,urban=u,waste=w,woods=d'
   },
 ];

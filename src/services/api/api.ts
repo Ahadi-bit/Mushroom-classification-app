@@ -22,3 +22,29 @@ export const getCorrelation = async (url: string) =>{
 
     return correlation
 }
+
+
+export const getFeatures = async (url: string) =>{
+  const response = await fetch(url,{
+    method:'GET',
+    headers:{
+      'Content-Type': 'application/json'
+    }})
+
+    const feature = await response.json()
+
+    return feature
+}
+
+
+export const getPopulation = async (url: string) =>{
+  const response = await fetch(url,{
+    method:'GET',
+    headers:{
+      'Content-Type': 'application/json'
+    }})
+
+    const pop = await response.json()
+
+    return pop
+}
