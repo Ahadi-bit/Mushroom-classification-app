@@ -55,7 +55,6 @@ export const FeatureChart: FC = () => {
 
   const labels = Object.keys(feature)
 
-  console.log(feature)
   const data ={
     labels,
     datasets:[
@@ -72,7 +71,6 @@ export const FeatureChart: FC = () => {
     ]
   }
 
-  console.log(dpItem)
   const onChange = (event: SelectChangeEvent) =>{
     getFeatures(`https://protected-headland-74973.herokuapp.com/balance/${event.target.value as string}`)
     .then(feature=>{
