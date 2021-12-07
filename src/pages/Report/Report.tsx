@@ -3,6 +3,8 @@ import { Text,Correlation,FeatureChart, PopulationChart} from '../../components'
 import {Typography} from '@mui/material';
 
 
+
+// Reports Page
 export const Report: FC = () => {
 
   return (

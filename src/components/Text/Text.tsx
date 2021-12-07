@@ -8,6 +8,7 @@ interface TextProps {
 }
 
 
+// Typography functional component
 export const Text:FC<TextProps> = ({heading,subtitle}) => {
   return (
     <div style={{marginBottom:"25px"}}>

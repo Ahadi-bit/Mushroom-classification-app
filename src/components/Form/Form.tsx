@@ -14,14 +14,14 @@ import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { Text } from '..';
-
 import './Form.css';
-
 import {
   defaultValues,
   validation,
 } from '../../services/validation/validation';
 
+
+// Component for the Form
 export const Form: FC = () => {
   const methods = useForm<IFormInput>({ defaultValues: defaultValues });
   const [FormError, setError] = useState(false);
@@ -37,22 +37,27 @@ export const Form: FC = () => {
 
   const confidenceEdible = edible > 75 ? `Edible percentage: ${edible}%`:`(Edible percentage: ${edible}%)so be careful!`
   const confidencePoisonous = poisonous > 75 ? `Poisonous percentage: ${edible}%`:`(Poisonous percentage: ${edible}%) so be careful!`
-
   const confidenceText = predict === "Poisonous Mushroom" ? confidencePoisonous: confidenceEdible;
+
+
+  // submit form
   const onSubmit = (data: IFormInput) => {
     const valid = validation(data);
     if (valid['isValid']) {
+      setOpen(true)
       postForm('https://protected-headland-74973.herokuapp.com/predict',data).then((prediction)=>{
         setEdible(prediction[1])
         setPoisonous(prediction[2])
         setPredict(prediction[0])})
-      .then(()=> setOpen(true))
+        setError(false)
     } else {
       setErrorLabel(valid['feature']);
       setError(true);
     }
   };
 
+
+  // close dialog
   const handleClose = () => {
     reset();
     setOpen(false);
@@ -243,23 +248,27 @@ export const Form: FC = () => {
           Reset
         </Button>
         <Dialog open={open} fullScreen={fullScreen} onClose={handleClose} aria-labelledby="responsive-dialog-title">
-          <DialogTitle id="responsive-dialog-title" sx={{textAlign:'center'}}>
-            This is a {predict.toLowerCase()}!
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText sx={{position:'relative', textAlign:'center'}}>Confidence percentage:</DialogContentText>
-            <DialogContentText sx={{ position:'relative'}}>
-              {confidenceText}
-            </DialogContentText>
-            <DialogContentText style={{width:'100%',height:'0',paddingBottom:'100%', position:'relative'}}>
-              <iframe src={predict==="Edible Mushroom"? "https://giphy.com/embed/bSEkPdQfsSHCMYn7fD": "https://giphy.com/embed/XZYU1eBnPPC67Dh8Uw"} width="100%" height="100%" style={{position:'absolute',display:'block'}} frameBorder="0" className="giphy-embed"  title="mushroom" allowFullScreen></iframe>
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-          <Button autoFocus onClick={handleClose} variant="contained" color="secondary">
-              Close
-            </Button>
-        </DialogActions>
+        {predict && (
+          <>
+            <DialogTitle id="responsive-dialog-title" sx={{textAlign:'center'}}>
+              This is a {predict.toLowerCase()}!
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText sx={{position:'relative', textAlign:'center'}}>Confidence percentage:</DialogContentText>
+              <DialogContentText sx={{ position:'relative', textAlign:'center'}}>
+                {confidenceText}
+              </DialogContentText>
+              <DialogContentText style={{width:'100%',height:'0',paddingBottom:'100%', position:'relative'}}>
+                <iframe src={predict==="Edible Mushroom"? "https://giphy.com/embed/bSEkPdQfsSHCMYn7fD": "https://giphy.com/embed/XZYU1eBnPPC67Dh8Uw"} width="100%" height="100%" style={{position:'absolute',display:'block'}} frameBorder="0" className="giphy-embed"  title="mushroom" allowFullScreen></iframe>
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button autoFocus onClick={handleClose} variant="contained" color="secondary">
+                  Close
+              </Button>
+            </DialogActions>
+          </>  
+        )}
         </Dialog>
       </Container>
     </>

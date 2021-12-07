@@ -5,6 +5,8 @@ import { Paper} from '@mui/material/';
 
 import './Layout.css';
 
+
+// Layout for the page
 const Layout: FC = ({ children }) => {
   return (
     <>

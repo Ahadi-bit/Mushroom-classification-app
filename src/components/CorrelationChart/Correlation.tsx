@@ -10,7 +10,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Bar,Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
@@ -22,7 +22,7 @@ ChartJS.register(
   Legend
 );
 
-
+// Options for the chart
 const options = {
   responsive: true,
   plugins: {
@@ -36,6 +36,8 @@ const options = {
   },
 };
 
+
+// Functional component for the Correlation Chart
 export const Correlation:FC = () => {
   const[correlation, setCorrelation] = useState({})
   useEffect(() =>{
@@ -45,6 +47,7 @@ export const Correlation:FC = () => {
         }).catch(err => ()=> console.log(err))
   },[])
 
+  // removing unused columns 
   delete correlation['target']
   delete correlation['cap_shape']
   delete correlation['stalk_shape']

@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom';
 import { pages } from '../../routes';
 import './Nav.css';
 
+
+// Functional for the Nav Component
 export const Nav: FC = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
 

@@ -6,6 +6,8 @@ import {pages} from './routes'
 
 import './Application.css';
 
+
+// Entry point to the Application
 const Application: FC<{}> = () => {
   return (
     <Typography variant="body2" component="div">

@@ -29,6 +29,8 @@ ChartJS.register(
   Legend
 );
 
+
+// Options for the chart
 const options = {
   responsive: true,
   plugins: {
@@ -42,6 +44,7 @@ const options = {
   },
 };
 
+// Functional component for the feature Chart
 export const FeatureChart: FC = () => {
   const [feature, setfeature] = useState({})
   const [dpItem, setdpItem] = useState('')

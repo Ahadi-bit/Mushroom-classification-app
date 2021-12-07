@@ -1,5 +1,6 @@
 
 
+// API for form
 export const postForm = async (url: string, formData: any)=> {
   const response = await fetch(url,{
     method:'POST',
@@ -11,6 +12,7 @@ export const postForm = async (url: string, formData: any)=> {
   return prediction
 }
 
+// API for correlation chart
 export const getCorrelation = async (url: string) =>{
   const response = await fetch(url,{
     method:'GET',
@@ -23,7 +25,7 @@ export const getCorrelation = async (url: string) =>{
     return correlation
 }
 
-
+// API for Feature Chart
 export const getFeatures = async (url: string) =>{
   const response = await fetch(url,{
     method:'GET',
@@ -36,7 +38,7 @@ export const getFeatures = async (url: string) =>{
     return feature
 }
 
-
+// API for population pie chart
 export const getPopulation = async (url: string) =>{
   const response = await fetch(url,{
     method:'GET',

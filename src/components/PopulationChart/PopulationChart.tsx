@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 
+// Function component for the Population Pie Chart
 export const PopulationChart:FC = () => {
   const [pop, setPop] = useState({})
   useEffect(() =>{

@@ -4,6 +4,7 @@ import anatomy from '../../image/anatomy.jpg'
 import Container from '@mui/material/Container';
 
 
+// Information Page
 export const InfoPage: FC = () => {
   return (
     <div>

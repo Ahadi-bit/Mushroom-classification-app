@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 
 
 
-
+// Function component for the Feature Table
 export const FeatureTable: FC = () => {
 
 

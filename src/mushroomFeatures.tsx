@@ -1,5 +1,8 @@
 import { IMushroomFeatures } from './interfaces/formModel';
 
+
+
+// Data needed for the form and table
 export const mushroomFeature: IMushroomFeatures[] = [
   {
     feature: 'cap-surface',
