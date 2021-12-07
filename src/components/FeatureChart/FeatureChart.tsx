@@ -1,23 +1,8 @@
 import {FC,useState,useEffect} from 'react';
-import { getFeatures } from '../../services/api/api';
-import {
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent
-} from '@mui/material';
+import { getFeatures } from '../../services';
+import {FormControl,InputLabel,MenuItem,Select,SelectChangeEvent} from '@mui/material';
 import {mushroomFeature} from '../../mushroomFeatures'
-
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip,Legend,} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(

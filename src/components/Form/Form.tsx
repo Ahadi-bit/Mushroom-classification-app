@@ -1,24 +1,13 @@
 import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Button,Container } from '@mui/material/';
+import { Button,Container,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle,useMediaQuery,Grid} from '@mui/material/';
 import { FormInputDropdown } from './Form-Components';
-import Grid from '@mui/material/Grid';
-import { mushroomFeature } from '../../mushroomFeatures';
 import { IFormInput } from '../../interfaces/formModel';
-import {postForm} from '../../services/api/api';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { Text } from '..';
 import './Form.css';
-import {
-  defaultValues,
-  validation,
-} from '../../services/validation/validation';
+import {defaultValues,validation,postForm} from '../../services';
+import { mushroomFeature } from '../../mushroomFeatures';
 
 
 // Component for the Form

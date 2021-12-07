@@ -1,15 +1,6 @@
 import { FC , useEffect,useState} from 'react';
-import { getCorrelation } from '../../services/api/api';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import { getCorrelation } from '../../services';
+import {Chart as ChartJS, CategoryScale,LinearScale, PointElement, LineElement, Title,Tooltip,Legend} from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
 ChartJS.register(
