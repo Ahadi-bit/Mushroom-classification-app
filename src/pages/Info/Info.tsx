@@ -13,7 +13,7 @@ export const InfoPage: FC = () => {
 
       <Text heading="Mushroom Anatomy" subtitle="The anatomy of a mushroom"/>
       <Container maxWidth="sm" >
-        <img src={anatomy}/>
+        <img style={{width:"100%"}} src={anatomy}/>
       </Container>
     </div>
   )
